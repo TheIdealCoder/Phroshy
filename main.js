@@ -199,7 +199,7 @@ window.addEventListener("keyup", e=>{
 
 var [mouseX, mouseY] = [0, 0];
 window.addEventListener(isMobile() ? "mousemove" : "touchmove", e=>{
-  [mouseX, mouseY] = [e.clientX, e.clientY];
+  [mouseX, mouseY] = [(isMobile() ? e.touches[0] : e).clientX, (isMobile() ? e.touches[0] : e).clientY];
 });
 
 if (isMobile()) {
