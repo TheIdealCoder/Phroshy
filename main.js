@@ -104,10 +104,12 @@ function loop() {
   movementSpeed[0] = accelerationaryConstraint(movementSpeed[0], movementAccelerationMaximum);
   movementSpeed[1] = accelerationaryConstraint(movementSpeed[1], movementAccelerationMaximum);
   
-  if (keys[0]) movementSpeed[1] -= movementAccelerationSpeed;
-  if (keys[1]) movementSpeed[0] -= movementAccelerationSpeed;
-  if (keys[2]) movementSpeed[1] += movementAccelerationSpeed;
-  if (keys[3]) movementSpeed[0] += movementAccelerationSpeed;
+  if (!mouseControl) {
+    if (keys[0]) movementSpeed[1] -= movementAccelerationSpeed;
+    if (keys[1]) movementSpeed[0] -= movementAccelerationSpeed;
+    if (keys[2]) movementSpeed[1] += movementAccelerationSpeed;
+    if (keys[3]) movementSpeed[0] += movementAccelerationSpeed;
+  }
   
   if (mouseControl) {
     movementSpeed[0] += movementAccelerationSpeed * constraint((mouseX - width / 2) / (width / 4), -1, 1);
