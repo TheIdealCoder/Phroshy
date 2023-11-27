@@ -198,8 +198,10 @@ window.addEventListener("keyup", e=>{
 });
 
 var [mouseX, mouseY] = [0, 0];
-window.addEventListener(isMobile() ? "mousemove" : "touchmove", e=>{
-  [mouseX, mouseY] = [(isMobile() ? e.touches[0] : e).clientX, (isMobile() ? e.touches[0] : e).clientY];
+let thing = (isMobile() ? "touchmove" : "mousemove");
+window.addEventListener(thing, e=>{
+  let elm = (isMobile() ? e.touches[0] : e);
+  [mouseX, mouseY] = [elm.clientX, elm.clientY];
 });
 
 if (isMobile()) {
