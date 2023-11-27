@@ -9,7 +9,7 @@ var keys = [];
 
 var savedCanvas = null;
 
-let mouseControl = false;
+let mouseControl = isMobile();
 
 class tooltipnotification {
   constructor(string) {
